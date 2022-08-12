@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 import config from 'config'
 
-function connect() {
+function connectDB() {
   const dbUri = config.get<string>('dbUri')
 
   // if you're using a version of mongoose previous to v.6
@@ -16,4 +16,4 @@ function connect() {
     })
 }
 
-export default connect
+export default connectDB
