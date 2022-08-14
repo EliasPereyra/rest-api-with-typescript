@@ -1,5 +1,6 @@
 import mongoose from 'mongoose'
 import config from 'config'
+import logger from './logger'
 
 function connectDB() {
   const dbUri = config.get<string>('dbUri')
@@ -8,10 +9,10 @@ function connectDB() {
   // you might specify in the options the newUrlParser and unifiedTopology
   return mongoose.connect(dbUri)
     .then(() => {
-      console.log('Connected to DB successfully')
+      logger.info('Connected to DB successfully')
     })
     .catch(error => {
-      console.error(error, 'Could not connect to DB')
+      logger.error(error, 'Could not connect to DB')
       process.exit(1)
     })
 }
