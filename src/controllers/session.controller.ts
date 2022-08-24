@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import { createSession } from "../services/session.service";
 import { validatePassword } from "../services/user.service";
 
 export async function createUserSessionHandler(req: Request, res: Response) {
@@ -10,6 +11,7 @@ export async function createUserSessionHandler(req: Request, res: Response) {
   }
 
   // create a session
+  const session = createSession(user._id, req.get("user-agent") || "")
 
   // create an access token
 
