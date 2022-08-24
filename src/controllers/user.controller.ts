@@ -8,7 +8,7 @@ export async function createUserHandler(req: Request<{}, {}, CreateUserInput["bo
   try {
     const user = await createUser(req.body)
 
-    return user
+    return res.send(user)
   }
   catch (e: any) {
     logger.error(e)
