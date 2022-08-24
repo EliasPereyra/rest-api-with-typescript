@@ -9,6 +9,8 @@ const port = config.get<Number>('port')
 
 const app = express()
 
+app.use(express.json())
+
 app.listen(port, async () => {
   await connectDB()
   logger.info(`App running with success at http://localhost:${port}`)
