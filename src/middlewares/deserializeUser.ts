@@ -14,7 +14,7 @@ const deserializeUser = (req: Request, res: Response, next: NextFunction) => {
     return next()
   }
 
-
+  return next()
 }
 
 export default deserializeUser
