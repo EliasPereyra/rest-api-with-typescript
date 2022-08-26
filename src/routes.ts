@@ -2,6 +2,7 @@ import { Express, Request, Response } from 'express'
 import { createUserSessionHandler, getUserSessionsHandler } from './controllers/session.controller'
 
 import { createUserHandler } from './controllers/user.controller'
+import requireUser from './middlewares/requireUser'
 import validateResource from './middlewares/validateResource'
 import { createSession } from './schema/session.schema'
 import { createUserSchema } from './schema/user.schema'
@@ -13,9 +14,7 @@ function routes(app: Express) {
 
   app.post('/api/sessions', validateResource(createSession), createUserSessionHandler)
 
-  app.get('/api/sessions', getUserSessionsHandler, () => {
-
-  })
+  app.get('/api/sessions', requireUser, getUserSessionsHandler)
 }
 
 export default routes
