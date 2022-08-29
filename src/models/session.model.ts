@@ -30,6 +30,6 @@ sessionSchema.methods.comparePassword = async function (candidatePassword: strin
     .catch((e) => false)
 }
 
-const SessionModel = mongoose.model<UserDocument>("Session", sessionSchema);
+const SessionModel = mongoose.model<SchemaDocument>("Session", sessionSchema);
 
 export default SessionModel
