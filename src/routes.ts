@@ -12,9 +12,10 @@ function routes(app: Express) {
 
   app.post('/api/users', validateResource(createUserSchema), createUserHandler)
 
+  app.get('/api/sessions', requireUser, getUserSessionsHandler)
+
   app.post('/api/sessions', validateResource(createSession), createUserSessionHandler)
 
-  app.get('/api/sessions', requireUser, getUserSessionsHandler)
   app.delete('/api/sessions/:id', requireUser, deleteSessionHandler)
 }
 
