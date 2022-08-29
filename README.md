@@ -1,7 +1,7 @@
 # REST API with Typescript
 
 ## About the Project
-
+Rest API built with ExpressJS and MongoDB and written with Typescript
 
 ### Built with
 
