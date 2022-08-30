@@ -1,7 +1,7 @@
 import { object, number, string, TypeOf } from 'zod'
 
 const payload = {
-  payload: object({
+  body: object({
     title: string({
       required_error: "Title is required"
     }),
