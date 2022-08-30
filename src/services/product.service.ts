@@ -6,7 +6,7 @@ export async function createProduct(input: DocumentDefinition<Omit<ProductDocume
 }
 
 export async function findProduct(query: FilterQuery<ProductDocument>, options = { lean: true }) {
-
+  return ProductModel.findOne(query, {}, options)
 }
 
 export async function findAndUpdateProduct() {
