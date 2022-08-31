@@ -1,9 +1,9 @@
-# REST API with Typescript
+<div align="center">
+  <h1>--REST API with Typescript--</h1>
+  <p>Rest API built with ExpressJS and MongoDB and written in Typescript</p>
+</div>
 
-## About the Project
-Rest API built with ExpressJS and MongoDB and written with Typescript
-
-### Built with
+## Built with
 
 * ![Node.js][Node.js]
 * ![MongoDB][MongoDB]
