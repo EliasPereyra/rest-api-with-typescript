@@ -24,11 +24,11 @@ function routes(app: Express) {
 
   app.post('/api/products', [requireUser, validateResource(createProductSchema), createProductHandler])
 
-  app.put('/api/products', [requireUser, validateResource(updateProductSchema), updateProductHandler])
+  app.put('/api/products/product:id', [requireUser, validateResource(updateProductSchema), updateProductHandler])
 
-  app.get('/api/products', validateResource(getProductSchema), getProductHandler)
+  app.get('/api/products/product:id', validateResource(getProductSchema), getProductHandler)
 
-  app.delete('/api/products', [requireUser, validateResource(deleteProductSchema)], deleteProductHandler)
+  app.delete('/api/products/product:id', [requireUser, validateResource(deleteProductSchema)], deleteProductHandler)
 }
 
 export default routes
