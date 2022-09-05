@@ -31,7 +31,7 @@ export async function updateProductHandler(req: Request<UpdateProductInput['para
     return res.sendStatus(404)
   }
 
-  if (product.user !== userId) {
+  if (String(product.user) !== userId) {
     return res.sendStatus(403)
   }
 
@@ -63,7 +63,7 @@ export async function deleteProductHandler(req: Request<DeleteProductInput['para
     return res.sendStatus(404)
   }
 
-  if (product.user !== userId) {
+  if (String(product.user) !== userId) {
     return res.sendStatus(403)
   }
 
