@@ -1,9 +1,13 @@
 import { Express, Request, Response } from 'express'
-import { createUserSessionHandler, deleteSessionHandler, getUserSessionsHandler } from './controllers/session.controller'
 
-import { createUserHandler } from './controllers/user.controller'
 import requireUser from './middlewares/requireUser'
 import validateResource from './middlewares/validateResource'
+
+import { createProductHandler, deleteProductHandler, getProductHandler, updateProductHandler } from './controllers/product.controller'
+import { createUserSessionHandler, deleteSessionHandler, getUserSessionsHandler } from './controllers/session.controller'
+import { createUserHandler } from './controllers/user.controller'
+
+import { createProductSchema, deleteProductSchema, getProductSchema, updateProductSchema } from './schema/product.schema'
 import { createSession } from './schema/session.schema'
 import { createUserSchema } from './schema/user.schema'
 
@@ -17,8 +21,14 @@ function routes(app: Express) {
   app.post('/api/sessions', validateResource(createSession), createUserSessionHandler)
 
   app.delete('/api/sessions/:id', requireUser, deleteSessionHandler)
+
+  app.post('/api/products', [requireUser, validateResource(createProductSchema), createProductHandler])
+
+  app.put('/api/products', [requireUser, validateResource(updateProductSchema), updateProductHandler])
+
+  app.get('/api/products', validateResource(getProductSchema), getProductHandler)
+
+  app.delete('/api/products', [requireUser, validateResource(deleteProductSchema)], deleteProductHandler)
 }
 
 export default routes
-
-// arreglar error de env

@@ -19,7 +19,7 @@ const payload = {
 
 const params = {
   params: object({
-    product: string({
+    productId: string({
       required_error: "productId is required"
     })
   })
@@ -42,7 +42,7 @@ export const getProductSchema = object({
   ...params
 })
 
-export type createProductInput = TypeOf<typeof createProductSchema>
-export type updateProductInput = TypeOf<typeof updateProductSchema>
-export type deleteProductInput = TypeOf<typeof deleteProductSchema>
-export type readProductInput = TypeOf<typeof getProductSchema>
+export type CreateProductInput = TypeOf<typeof createProductSchema>
+export type UpdateProductInput = TypeOf<typeof updateProductSchema>
+export type DeleteProductInput = TypeOf<typeof deleteProductSchema>
+export type ReadProductInput = TypeOf<typeof getProductSchema>
