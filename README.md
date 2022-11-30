@@ -17,6 +17,21 @@
 [TypeScript]: https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white
 [JSONWebTokens]: https://img.shields.io/badge/jsonwebtokens-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white
 
+## Structure
+```
+  /configure
+  |- default.ts
+  /src
+  |- /controllers
+  |- /middlewares
+  |- /models
+  |- /schema
+  |- /services
+  |- /utils
+  |- app.ts
+  |- routes.ts
+```
+
 ## Features
 * Allows to create an user account
 * Allows to create a session with your user account
